@@ -5,11 +5,13 @@ import React, { Component } from 'react';
 import { fetchProducts } from '../../services/products.service';
 import ProductCard from '../product-card/product-card';
 
+
 import './product-list.scss';
 
 class ProductList extends Component {
     state = {
-        products: []
+        products: [],
+        cart: []
     }
 
     loadProducts = () => {
@@ -22,8 +24,16 @@ class ProductList extends Component {
     }
 
     componentDidMount(){
+        var cart = [];
+        if(localStorage.getItem('cart')){
+            cart = JSON.stringify(localStorage.getItem('cart')); 
+        } else {
+            localStorage.setItem('cart', JSON.stringify(this.state.cart));
+        }
+        
         this.setState({
-            products: this.loadProducts()
+            products: this.loadProducts(),
+            cart: cart 
         })
     }
     render(){
@@ -40,6 +50,8 @@ class ProductList extends Component {
                         return (<ProductCard onProductSelect={this.handleProductSelect} product={item} key={key} />)
                     })
                 }
+
+
             </div>
         )
     }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import B2BAccordion from '../../components/accordion/accordion';
+
+import { getProduct } from '../../services/products.service';
+
 
 import './product-details.scss';
 
@@ -13,14 +16,12 @@ class ProductDetails extends Component {
         orderPrice: this.props.location.state.productItem.price
     }
     componentDidMount(){
-
-        localStorage.setItem('cart', JSON.stringify({'asd': 'asd'}));
         let toppings = [];
-        this.props.location.state.productItem.toppings.forEach(element => {
+        // let product = getProduct(this.props.match.params.productItem);
+        getProduct(this.props.match.params.productItem).toppings.forEach(element => {
             element.options.map(option => {
                 option.selected = false;
             })
-            
             toppings.push({...element});
         });
         this.setState({
@@ -63,7 +64,28 @@ class ProductDetails extends Component {
         });
     }
 
-    handleAddOrder = () => {
+    handleAddOrder = (product) => {
+
+        let addedToppings = [],
+            addedOptions = [];
+
+        this.state.toppings.forEach((topping) => {
+            addedOptions = [];
+            topping.options.forEach(option => {
+                if(option.selected == true){
+                    addedOptions.push(option);
+                }
+            })
+            if(addedOptions.length > 0){
+                topping.options = addedOptions;
+                addedToppings.push(topping);
+            }
+        })
+
+        product.toppings = addedToppings;
+        product.price = this.state.orderPrice;
+        product.instrucions = this.state.specialInstructions;
+        this.props.addToCart(product);
     }
     render(){
         const product = this.props.location.state.productItem;
@@ -136,14 +158,24 @@ class ProductDetails extends Component {
 
                             <span className="font-sans font-size-15 font-color-main">Pers.</span>
 
-                            <button onClick={this.handleAddOrder} className={"b2b-product-details__add--btn font-sans font-size-15" + (this.state.isDisabled? " disabled" : "")}>ADD</button>
+                            <button onClick={()=>this.handleAddOrder(product)} className={"b2b-product-details__add--btn font-sans font-size-15" + (this.state.isDisabled? " disabled" : "")}>ADD</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         )
     }
 }
 
-export default ProductDetails;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (item) => {
+            dispatch ({
+                type: 'ADD_TO_CART', 
+                item: item
+            })
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProductDetails);
