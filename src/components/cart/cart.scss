@@ -1,0 +1,35 @@
+.b2b-cart { 
+    position: fixed;
+    left: 0;
+    top: 80px;
+    border: 1px solid #f1f1f1;
+    width: 280px;
+    
+
+    &__title { 
+        border-bottom: 1px solid #fe8c6d;
+        padding-bottom: 5px;
+    }
+
+    &__list {
+        list-style-type: none;
+        margin-top: 10px;
+    }
+
+    &__item {
+        &--txt { 
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__total {
+        border-top: 1px solid #fe8c6d;
+        padding-top: 10px;
+        
+        &--txt {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

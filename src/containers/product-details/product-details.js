@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
 import B2BAccordion from '../../components/accordion/accordion';
 
+import { getProduct } from '../../services/products.service';
+
+
+import _ from 'lodash';
+
 import './product-details.scss';
 
 class ProductDetails extends Component {
@@ -13,8 +18,6 @@ class ProductDetails extends Component {
         orderPrice: this.props.location.state.productItem.price
     }
     componentDidMount(){
-
-        localStorage.setItem('cart', JSON.stringify({'asd': 'asd'}));
         let toppings = [];
         this.props.location.state.productItem.toppings.forEach(element => {
             element.options.map(option => {
@@ -63,10 +66,32 @@ class ProductDetails extends Component {
         });
     }
 
-    handleAddOrder = () => {
+    handleAddOrder = (product) => {
+        let addedProduct = _.cloneDeep(product),
+            addedToppings = [],
+            addedOptions = [],
+            toppings = product.toppings;
+
+        toppings.forEach(topping => {
+            let toppingItem = _.cloneDeep(topping);
+            addedOptions = [];
+            topping.options.forEach(option => {
+                if(option.selected == true){
+                    addedOptions.push(option);
+                }
+            })
+            if(addedOptions.length > 0){
+                toppingItem.options = addedOptions;
+                addedToppings.push(toppingItem);
+            }
+        })
+        addedProduct.toppings = addedToppings;
+        addedProduct.price = this.state.orderPrice;
+        addedProduct.instrucions = this.state.specialInstructions;
+        this.props.onCartUpdate(addedProduct);
     }
     render(){
-        const product = this.props.location.state.productItem;
+        const product = getProduct(this.props.match.params.productItem);
         return(
             <div className="b2b-product-details">
                 <div className="b2b-product-details__info-wrapper">
@@ -76,8 +101,7 @@ class ProductDetails extends Component {
 
                     <div className="b2b-product-details__info">
                         <div className="b2b-product-details__img">
-                            <img className="img" src={product.product_image} alt={ product.product } title={
-                                product.product } />
+                            <img className="img" src={product.product_image} alt={ product.product } title={ product.product } />
                         </div>
 
                         <div className="b2b-product-details__details pad-left-15 pad-right-15">
@@ -136,7 +160,7 @@ class ProductDetails extends Component {
 
                             <span className="font-sans font-size-15 font-color-main">Pers.</span>
 
-                            <button onClick={this.handleAddOrder} className={"b2b-product-details__add--btn font-sans font-size-15" + (this.state.isDisabled? " disabled" : "")}>ADD</button>
+                            <button onClick={()=>this.handleAddOrder(product)} className={"b2b-product-details__add--btn font-sans font-size-15" + (this.state.isDisabled? " disabled" : "")}>ADD</button>
                         </div>
                     </div>
 
