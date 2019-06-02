@@ -1,0 +1,11 @@
+.b2b-product-list {
+    width: 60%;
+    margin: 0 auto;
+
+    &__title {
+        font-family: sans-serif;
+        font-weight: normal;
+        color: #333;
+        border-bottom: 1px solid #333333;
+    }
+}

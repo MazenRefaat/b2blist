@@ -1,0 +1,63 @@
+.b2b-product-details {
+    width: 60%;
+    margin: 0 auto;
+
+    &__title {
+        border-bottom: 1px solid #FE8C6D;
+    }
+
+    &__info {
+        display: flex;
+    }
+
+    &__img {
+        flex: 0 0 25%;
+
+        .img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__order-details {
+        &--instructions { 
+            width: 100%;
+
+            .b2b-textarea {
+                width: 100%;
+                padding: 5px;
+                box-sizing: border-box;
+                
+            }
+        }
+    }
+
+    &__order-proceed {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__add {
+        &--persons {
+            width: 30px;
+            text-align: right;
+            padding: 10px;
+            margin-right: 15px;
+        }
+
+        &--btn {
+            margin-left: 15px;
+            background-color: #FE8C6D;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+
+            &.disabled {
+                background-color: #aaa;
+                pointer-events: none;
+            }
+        }
+    }
+}

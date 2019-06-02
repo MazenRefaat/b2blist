@@ -1,0 +1,21 @@
+.btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid transparent;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.btn-action {
+    background-color: #FE8C6D;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 15px 25px;
+
+    &:hover { 
+        border-color: #ff4411;
+    }
+}
