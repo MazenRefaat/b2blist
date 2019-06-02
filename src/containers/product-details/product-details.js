@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-
 import B2BAccordion from '../../components/accordion/accordion';
 
 import { getProduct } from '../../services/products.service';
 
-
 import _ from 'lodash';
 
+import { FormattedMessage } from 'react-intl';
+
 import './product-details.scss';
+
 
 class ProductDetails extends Component {
     state = {
@@ -130,10 +131,18 @@ class ProductDetails extends Component {
 
                     <div className="b2b-product-details__order-details--instructions mar-top-15">
                         <h3 className="font-sans font-size-15 font-color-main">
-                            Special Instructions
+                            <FormattedMessage id="product-details.special-instructions" defaultMessage="Special Instructions" />
                         </h3>
 
-                        <textarea className="b2b-textarea font-sans font-size-12 font-color-main" onChange={(event)=>this.handleInputChange(event)} placeholder="ex: No Onions, No Mayo - Write Comments in case you're allergic to some ingredient" value={this.state.specialInstructions} name="specialInstructions" id="" cols="30" rows="5"></textarea>
+                        <FormattedMessage id="product-details.special-instructions-placeholder" defaultMessage="ex: No Onions, No Mayo - Write Comments in case you're allergic to some ingredient" >
+                            { 
+                                placeholder => (
+                                    <textarea className="b2b-textarea font-sans font-size-12 font-color-main" onChange={(event)=>this.handleInputChange(event)} placeholder={placeholder} value={this.state.specialInstructions} name="specialInstructions" id="" cols="30" rows="5"></textarea>
+                                )
+
+                            }
+                            
+                        </FormattedMessage>
                     </div>
                 </div>
 
@@ -141,16 +150,19 @@ class ProductDetails extends Component {
                 <div className="b2b-product-details__order-proceed mar-top-15">
                     <div>
                         <p className="font-sans font-size-12 mar-bottom-10">
-                            <strong className="font-color-main font-weight-bold">
-                                £ {this.state.orderPrice}
+                            <strong className="b2b-product-details__order-proceed--price font-color-main font-weight-bold">
+                                <FormattedMessage id="currency.euro" defaultMessage="£" /> 
+                                &#160;
+                                 {this.state.orderPrice}
                             </strong>   
                             <span className="font-color-grey">
-                                &#160; per head
+                                &#160; 
+                                <FormattedMessage id="product-card.per-head" defaultMessage="per head" /> 
                             </span>
                         </p>
 
                         <span className="font-sans font-size-8 font-color-grey">
-                            All prices are without VAT
+                            <FormattedMessage id="product-details.price-without-vat" defaultMessage="All prices are without VAT" />
                         </span>
                     </div>
 
@@ -158,9 +170,13 @@ class ProductDetails extends Component {
                         <div className="b2b-product-details__add">
                             <input className="b2b-product-details__add--persons" type="number" name="numOfPers" value={this.state.numOfPers} onChange={(event)=>this.handleInputChange(event)}/>
 
-                            <span className="font-sans font-size-15 font-color-main">Pers.</span>
+                            <span className="font-sans font-size-15 font-color-main">
+                                <FormattedMessage id="product-details.persons" defaultMessage="Pers."/>
+                            </span>
 
-                            <button onClick={()=>this.handleAddOrder(product)} className={"b2b-product-details__add--btn font-sans font-size-15" + (this.state.isDisabled? " disabled" : "")}>ADD</button>
+                            <button onClick={()=>this.handleAddOrder(product)} className={"b2b-product-details__add--btn font-sans font-size-15" + (this.state.isDisabled? " disabled" : "")}>
+                                <FormattedMessage id="product-details.add" defaultMessage="ADD"/>
+                            </button>
                         </div>
                     </div>
 

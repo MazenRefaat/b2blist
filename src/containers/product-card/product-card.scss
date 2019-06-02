@@ -26,3 +26,13 @@
         justify-content: space-between;
     }
 }
+
+.ar {
+    .b2b-product-card {
+        &__info {
+            &--view {
+                text-align: left;
+            }
+        }
+    }
+}

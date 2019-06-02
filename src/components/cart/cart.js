@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl'
 
 import './cart.scss';
 
@@ -29,7 +30,7 @@ class Cart extends Component {
             ? 
             <div className="b2b-cart pad-15">
                 <h4 className="b2b-cart__title font-sans font-size-12 font-color-main mar-0">
-                    Cart
+                    <FormattedMessage id="cart.title" defaultMessage="Cart"></FormattedMessage>
                 </h4>
 
                 <div>
@@ -43,7 +44,13 @@ class Cart extends Component {
                                                 {this.formatCartItem(item.product)} 
                                             </span>
                                             
-                                            <strong>(£ {item.price})</strong>
+                                            <strong className="b2b-cart__total--price">
+                                                (
+                                                    <FormattedMessage id="currency.euro" defaultMessage="£"></FormattedMessage> 
+                                                    &#160;
+                                                    {item.price}
+                                                )
+                                            </strong>
                                         </p>
 
                                     </li>
@@ -55,11 +62,13 @@ class Cart extends Component {
                 <div className="b2b-cart__total">
                     <p className="b2b-cart__total--txt font-sans font-size-12 font-weight-bold mar-0">
                         <span>
-                            Total
+                            <FormattedMessage id="cart.total" defaultMessage="Total"></FormattedMessage>
                         </span>
 
-                        <strong>
-                            £ {total}
+                        <strong className="b2b-cart__total--price">
+                            <FormattedMessage id="currency.euro" defaultMessage="£"></FormattedMessage>  
+                            &#160; 
+                            {total}
                         </strong>
                     </p>
                 </div>

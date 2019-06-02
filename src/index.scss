@@ -115,24 +115,42 @@ body {
 /*
 * Accordion Custom Styles
 */
-
 .accordion {
     border: none;
+
+    &__button {
+        width: initial;
+        background-color: #fff;
+
+
+        &::before {
+            float: right;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background-color: #f8f8f8;
+        }
+    }
 }
-.accordion__button {
-    width: initial;
-    background-color: #fff;
 
+.ar {
+    .accordion {
+        &__button {
+            text-align: right;
 
-    &::before {
-        float: right;
-    }
+            &::before {
+                float: left;
+                transform: rotate(135deg);
+            }
 
-    &:focus {
-        outline: none;
-    }
-
-    &:hover { 
-        background-color: #f8f8f8;
+            &[aria-expanded='true']::before, 
+            &[aria-selected='true']::before {
+                transform: rotate(45deg);
+            }
+        }
     }
 }

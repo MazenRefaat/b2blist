@@ -61,3 +61,26 @@
         }
     }
 }
+
+.ar {
+    .b2b-product-details {
+
+        &__order-proceed {
+            &--price {
+                display: inline-flex;
+                direction: ltr;
+            }
+        }
+        &__add {
+            &--persons {
+                margin-right: 0;
+                margin-left: 15px;
+            }
+
+            &--btn {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+    }
+}

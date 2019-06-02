@@ -6,6 +6,7 @@ import { fetchProducts } from '../../services/products.service';
 import ProductCard from '../product-card/product-card';
 
 import './product-list.scss';
+import { FormattedMessage } from 'react-intl';
 
 class ProductList extends Component {
     state = {
@@ -30,7 +31,7 @@ class ProductList extends Component {
         return (
             <div className="b2b-product-list">
                 <h1 className="b2b-product-list__title">
-                    Products
+                    <FormattedMessage id="product-list.title" defaultMessage="Products"></FormattedMessage>
                 </h1>
                 {
                     this.state.products.products

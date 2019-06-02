@@ -1,7 +1,7 @@
 .b2b-cart { 
     position: fixed;
-    left: 0;
-    top: 80px;
+    left: 10px;
+    top: 110px;
     border: 1px solid #f1f1f1;
     width: 280px;
     
@@ -30,6 +30,23 @@
         &--txt {
             display: flex;
             justify-content: space-between;
+        }
+
+        &--price {  
+            display: flex;
+        }
+    }
+}
+
+.ar {
+    .b2b-cart {
+        right: 10px;
+        left: initial;
+
+        &__total {
+            &--price {
+                direction: ltr;
+            }
         }
     }
 }

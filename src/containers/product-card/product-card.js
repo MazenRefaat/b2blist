@@ -7,6 +7,7 @@ import HintMinOrder from '../../components/hint-min-order/hint-min-order';
 import Button from '../../components/button/button';
 
 import './product-card.scss';
+import { FormattedMessage } from 'react-intl';
 
 
 const ProductCard = (props) => {
@@ -33,7 +34,7 @@ const ProductCard = (props) => {
 
                         <div>
                             <span className="font-sans font-size-12 font-color-grey">
-                                Plus VAT
+                                <FormattedMessage id="product-card.plus-vat" defaultMessage="Plus VAT"/>
                             </span>
                         </div>
                     </div>

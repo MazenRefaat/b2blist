@@ -1,4 +1,17 @@
-.card-title {
-    
+.card-price {
+    &__txt {
+        &--value {
+            display: inline-flex;
+        }
+    }
+}
 
+.ar {
+    .card-price {
+        &__txt {
+            &--value {
+                direction: ltr;
+            }
+        }
+    }
 }

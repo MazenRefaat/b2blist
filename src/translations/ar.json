@@ -1,0 +1,25 @@
+{
+    "product-list": {
+        "title" : "المنتجات"
+    },
+    "product-card": {
+        "per-head": "لكل واحد",
+        "plus-vat": "بالاضافة لضريبة القيمة المضافة",
+        "min-order": "أقل عدد للطلب:",
+        "view": "عرض"
+    },
+    "product-details": {
+        "special-instructions": "تعليمات خاصة",
+        "special-instructions-placeholder": "مثلا: لا بصل, او مايونيز - اكتب تعليقات في حالة انك تعاني من الحساسية تجاه بعض المكونات",
+        "persons": "فرد",
+        "price-without-vat": "جميع الأسعار لا تشمل ضريبة القيمة المضافة",
+        "add": "أضف"
+    },
+    "cart": {
+        "title": "العربة",
+        "total": "الإجمالي"
+    },
+    "currency": {
+        "euro": "يورو"
+    }
+}
