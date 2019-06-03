@@ -1,0 +1,25 @@
+{
+    "product-list": {
+        "title" : "Products"
+    },
+    "product-card": {
+        "per-head": "per head",
+        "plus-vat": "Plus VAT",
+        "min-order": "Minimum Order",
+        "view": "view"
+    },
+    "product-details": {
+        "special-instructions": "Special Instructions",
+        "special-instructions-placeholder": "ex: No Onions, No Mayo - Write Comments in case you're allergic to some ingredient",
+        "persons": "Pers.",
+        "price-without-vat": "All prices are without VAT",
+        "add": "ADD"
+    },
+    "cart": {
+        "title": "Cart",
+        "total": "Total"
+    },
+    "currency": {
+        "euro": "£"
+    }
+}

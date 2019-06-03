@@ -1,0 +1,38 @@
+.b2b-product-card {
+    display: flex;
+    padding: 15px;
+    box-shadow: 0px 3px 4px -1px #bbb;
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 75%;
+        box-sizing: border-box;
+
+        &--description { 
+            margin-top: 15px;
+        }
+
+        &--view {
+            margin-top: auto;
+            text-align: right;
+        }
+    }
+
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.ar {
+    .b2b-product-card {
+        &__info {
+            &--view {
+                text-align: left;
+            }
+        }
+    }
+}

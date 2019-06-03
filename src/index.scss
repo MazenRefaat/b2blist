@@ -1,0 +1,156 @@
+@import '../node_modules/react-accessible-accordion/dist/fancy-example.css';
+/* 
+* Global Styles
+*/
+
+body {
+    margin: 0;
+}
+
+/*
+* Font Styles
+*/
+
+.font-sans {
+    font-family: sans-serif;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.font-size-15 {
+    font-size: 15px;
+}
+
+.font-size-12 {
+    font-size: 12px;
+}
+
+.font-size-8 {
+    font-size: 8px;
+}
+
+.font-weight-light {
+    font-weight: 300;
+}
+
+.font-weight-normal {
+    font-weight: normal;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.font-color-main {
+    color: #333;
+}
+
+.font-color-grey {
+    color: #999;
+}
+
+
+/*
+* Box Styles
+*/
+
+.mar-0 {
+    margin: 0;
+}
+
+.mar-top-0 {
+    margin-top: 0;
+}
+
+.mar-bottom-0 {
+    margin-bottom: 0;
+}
+
+.mar-15 {
+    margin: 15px;
+}
+
+.mar-top-15 {
+    margin-top: 15px;
+}
+
+.mar-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.pad-0 {
+    padding: 0;
+}
+
+.pad-top-0 {
+    padding-top: 0;
+}
+
+.pad-bottom-0 {
+    padding-bottom: 0;
+}
+
+.pad-15 {
+    padding: 15px;
+}
+
+.pad-top-15 {
+    padding-top: 15px;
+}
+
+.pad-right-15 {
+    padding-right: 15px;
+}
+
+.pad-bottom-15 {
+    padding-bottom: 15px;
+}
+
+.pad-left-15 {
+    padding-left: 15px;
+}
+
+/*
+* Accordion Custom Styles
+*/
+.accordion {
+    border: none;
+
+    &__button {
+        width: initial;
+        background-color: #fff;
+
+
+        &::before {
+            float: right;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background-color: #f8f8f8;
+        }
+    }
+}
+
+.ar {
+    .accordion {
+        &__button {
+            text-align: right;
+
+            &::before {
+                float: left;
+                transform: rotate(135deg);
+            }
+
+            &[aria-expanded='true']::before, 
+            &[aria-selected='true']::before {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
