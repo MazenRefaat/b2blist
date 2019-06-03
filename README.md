@@ -32,7 +32,7 @@ npm start
 ```bash
 docker build -t b2blist .
 
-docker run -it -p {PortNumber}:8080
+docker run -it -p {PortNumber}:8080 b2blist
 
 App will be running at http://0.0.0.0:{PortNumber}
 ```
